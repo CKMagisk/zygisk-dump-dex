@@ -3,8 +3,9 @@ default:
 
 [doc('Build rust library for android')]
 build:
-    # cargo ndk -t arm64-v8a -t armeabi-v7a -t x86 -t x86_64 --platform=29 --bindgen build
-    cargo ndk -t arm64-v8a --platform=29 --bindgen build
+    # cargo ndk -t arm64-v8a -t armeabi-v7a -t x86 -t x86_64 --platform=29 build
+    # 移除了 --bindgen
+    cargo ndk -t arm64-v8a --platform=29 build
 
 [doc('Build a zip module for KernelSU')]
 package: build
@@ -25,8 +26,9 @@ flash: package
 
 [doc('Build rust library for android')]
 build-release:
-    # cargo ndk -t arm64-v8a -t armeabi-v7a -t x86 -t x86_64 --platform=29 --bindgen build --release
-    cargo ndk -t arm64-v8a --platform=29 --bindgen build --release
+    # cargo ndk -t arm64-v8a -t armeabi-v7a -t x86 -t x86_64 --platform=29 build --release
+    # 移除了 --bindgen
+    cargo ndk -t arm64-v8a --platform=29 build --release
 
 [doc('Build a zip module for KernelSU')]
 package-release: build-release
